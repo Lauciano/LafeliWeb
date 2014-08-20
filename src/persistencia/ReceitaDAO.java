@@ -1,4 +1,4 @@
-package ClassesPersistencia;
+package persistencia;
 
 import java.util.List;
 
@@ -6,12 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
-public class ClienteDAO {
+public class ReceitaDAO {
 	
 	protected EntityManager entityManager;
 	
-	public ClienteDAO(){
+	public ReceitaDAO(){
 		entityManager = getEntityManager();
 	}
 	
@@ -23,18 +22,18 @@ public class ClienteDAO {
 		return entityManager;
 	}
 	
-	public Cliente getById(long id){
-		return entityManager.find(Cliente.class, id);
+	public Receita getById(long id){
+		return entityManager.find(Receita.class, id);
 	}
 	
-	public List<Cliente> findAll(){
-		return entityManager.createQuery("FROM " + Cliente.class.getName()).getResultList();
+	public List<Receita> findAll(){
+		return entityManager.createQuery("FROM " + Receita.class.getName()).getResultList();
 	}
 	
-	public void persist(Cliente pessoa) {
+	public void persist(Receita p) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa);
+            entityManager.persist(p);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -42,10 +41,10 @@ public class ClienteDAO {
         }
     }
  
-    public void merge(Cliente pessoa) {
+    public void merge(Receita p) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(pessoa);
+            entityManager.merge(p);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -53,11 +52,11 @@ public class ClienteDAO {
         }
     }
  
-    public void remove(Cliente pessoa) {
+    public void remove(Receita p) {
         try {
             entityManager.getTransaction().begin();
-            pessoa = entityManager.find(Cliente.class, pessoa.getId());
-            entityManager.remove(pessoa);
+            p = entityManager.find(Receita.class, p.getId());
+            entityManager.remove(p);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -67,11 +66,12 @@ public class ClienteDAO {
  
     public void removeById(final Long id) {
         try {
-        	Cliente pessoa = getById(id);
-            remove(pessoa);
+        	Receita p = getById(id);
+            remove(p);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
 }
+

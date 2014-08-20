@@ -1,4 +1,4 @@
-package ClassesPersistencia;
+package persistencia;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class ProdutoDAO {
+public class FornecimentoDAO {
 	
 	protected EntityManager entityManager;
 	
-	public ProdutoDAO(){
+	public FornecimentoDAO(){
 		entityManager = getEntityManager();
 	}
 	
@@ -22,18 +22,18 @@ public class ProdutoDAO {
 		return entityManager;
 	}
 	
-	public Produto getById(long id){
-		return entityManager.find(Produto.class, id);
+	public Fornecimento getById(long id){
+		return entityManager.find(Fornecimento.class, id);
 	}
 	
-	public List<Produto> findAll(){
-		return entityManager.createQuery("FROM " + Produto.class.getName()).getResultList();
+	public List<Fornecimento> findAll(){
+		return entityManager.createQuery("FROM " + Fornecimento.class.getName()).getResultList();
 	}
 	
-	public void persist(Produto p) {
+	public void persist(Fornecimento fornecimento) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(p);
+            entityManager.persist(fornecimento);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -41,10 +41,10 @@ public class ProdutoDAO {
         }
     }
  
-    public void merge(Produto p) {
+    public void merge(Fornecimento fornecimento) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(p);
+            entityManager.merge(fornecimento);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -52,11 +52,11 @@ public class ProdutoDAO {
         }
     }
  
-    public void remove(Produto p) {
+    public void remove(Fornecimento fornecimento) {
         try {
             entityManager.getTransaction().begin();
-            p = entityManager.find(Produto.class, p.getId());
-            entityManager.remove(p);
+            fornecimento = entityManager.find(Fornecimento.class, fornecimento.getId());
+            entityManager.remove(fornecimento);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -66,8 +66,8 @@ public class ProdutoDAO {
  
     public void removeById(final Long id) {
         try {
-        	Produto p = getById(id);
-            remove(p);
+        	Fornecimento fornecimento = getById(id);
+            remove(fornecimento);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

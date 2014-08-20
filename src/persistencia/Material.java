@@ -1,13 +1,13 @@
-package ClassesPersistencia;
+package persistencia;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "PRODUTO")
-public class Produto {
-	
+@Entity(name = "MATERIAL")
+public class Material {
+
 	@Id
 	@GeneratedValue
 	@Column(name="ID", nullable = false)
@@ -16,13 +16,11 @@ public class Produto {
 	@Column(name="NOME", nullable = false)
 	private String nome;
 	
-	@Column(name="PRECO", nullable = false)
-	private Double preco;
+	@Column(name="QUANTIDADE", nullable = false)
+	private Integer quantidade;
 	
-	@Column(name="IMAGEM", nullable = false)
-	private String imagem;
-	
-	public Produto(){
+	public Material(){
+		
 	}
 
 	public Integer getId() {
@@ -41,12 +39,13 @@ public class Produto {
 		this.nome = nome;
 	}
 
-	public double getPreco() {
-		return preco;
+	public Integer getQuantidade() {
+		return quantidade;
 	}
 
-	public void setPreco(double preco) {
-		this.preco = preco;
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
 	}
+	
 	
 }

@@ -1,4 +1,4 @@
-package ClassesPersistencia;
+package persistencia;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class CompraDAO {
+public class MaterialDAO {
 	
 	protected EntityManager entityManager;
 	
-	public CompraDAO(){
+	public MaterialDAO(){
 		entityManager = getEntityManager();
 	}
 	
@@ -22,18 +22,18 @@ public class CompraDAO {
 		return entityManager;
 	}
 	
-	public Compra getById(long id){
-		return entityManager.find(Compra.class, id);
+	public Material getById(long id){
+		return entityManager.find(Material.class, id);
 	}
 	
-	public List<Compra> findAll(){
-		return entityManager.createQuery("FROM " + Compra.class.getName()).getResultList();
+	public List<Material> findAll(){
+		return entityManager.createQuery("FROM " + Material.class.getName()).getResultList();
 	}
 	
-	public void persist(Compra p) {
+	public void persist(Material material) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(p);
+            entityManager.persist(material);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -41,10 +41,10 @@ public class CompraDAO {
         }
     }
  
-    public void merge(Compra p) {
+    public void merge(Material material) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(p);
+            entityManager.merge(material);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -52,11 +52,11 @@ public class CompraDAO {
         }
     }
  
-    public void remove(Compra p) {
+    public void remove(Material material) {
         try {
             entityManager.getTransaction().begin();
-            p = entityManager.find(Compra.class, p.getId());
-            entityManager.remove(p);
+            material = entityManager.find(Material.class, material.getId());
+            entityManager.remove(material);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -66,8 +66,8 @@ public class CompraDAO {
  
     public void removeById(final Long id) {
         try {
-        	Compra p = getById(id);
-            remove(p);
+        	Material material = getById(id);
+            remove(material);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

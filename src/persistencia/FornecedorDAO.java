@@ -1,4 +1,4 @@
-package ClassesPersistencia;
+package persistencia;
 
 import java.util.List;
 
@@ -6,11 +6,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class MaterialDAO {
+public class FornecedorDAO {
 	
 	protected EntityManager entityManager;
 	
-	public MaterialDAO(){
+	public FornecedorDAO(){
 		entityManager = getEntityManager();
 	}
 	
@@ -22,18 +22,18 @@ public class MaterialDAO {
 		return entityManager;
 	}
 	
-	public Material getById(long id){
-		return entityManager.find(Material.class, id);
+	public Fornecedor getById(long id){
+		return entityManager.find(Fornecedor.class, id);
 	}
 	
-	public List<Material> findAll(){
-		return entityManager.createQuery("FROM " + Material.class.getName()).getResultList();
+	public List<Fornecedor> findAll(){
+		return entityManager.createQuery("FROM " + Fornecedor.class.getName()).getResultList();
 	}
 	
-	public void persist(Material material) {
+	public void persist(Fornecedor fornecedor) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(material);
+            entityManager.persist(fornecedor);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -41,10 +41,10 @@ public class MaterialDAO {
         }
     }
  
-    public void merge(Material material) {
+    public void merge(Fornecedor fornecedor) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.merge(material);
+            entityManager.merge(fornecedor);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -52,11 +52,11 @@ public class MaterialDAO {
         }
     }
  
-    public void remove(Material material) {
+    public void remove(Fornecedor fornecedor) {
         try {
             entityManager.getTransaction().begin();
-            material = entityManager.find(Material.class, material.getId());
-            entityManager.remove(material);
+            fornecedor = entityManager.find(Fornecedor.class, fornecedor.getId());
+            entityManager.remove(fornecedor);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -66,8 +66,8 @@ public class MaterialDAO {
  
     public void removeById(final Long id) {
         try {
-        	Material material = getById(id);
-            remove(material);
+        	Fornecedor fornecedor = getById(id);
+            remove(fornecedor);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

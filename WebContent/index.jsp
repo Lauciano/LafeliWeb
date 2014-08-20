@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -28,13 +28,13 @@
 								<li><a href="#">Produtos</a></li>
 						</ul>
 						<div>
-							<form class="navbar-form navbar-right" role="form">
-								<div class="form-group">
-									<input type="email" class="form-control" placeholder="Nome de Usuário" required autofocus>
-									<input type="password" class="form-control" placeholder="Senha" required>
-								</div>
-								<button class="btn btn-default" type="submit">Entrar</button>
-							</form>
+						<form class="navbar-form navbar-right" role="form">
+							<div class="form-group">
+								<input type="email" class="form-control" placeholder="Nome de Usuário" required autofocus>
+								<input type="password" class="form-control" placeholder="Senha" required>
+							</div>
+							<button class="btn btn-default" type="submit">Entrar</button>
+						</form>
 						</div>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->

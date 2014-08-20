@@ -1,23 +1,23 @@
-package ClassesPersistencia;
+package persistencia;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name = "CLIENTE")
-public class Cliente {
-	
+@Entity(name = "FORNECEDOR")
+public class Fornecedor {
+
 	@Id
 	@GeneratedValue
 	@Column(name="ID", nullable = false)
 	private Integer id;
 	
+	@Column(name="CNPJ", nullable = false)
+	private String cnpj;
+	
 	@Column(name="NOME", nullable = false)
 	private String nome;
-	
-	@Column(name="SOBRENOME", nullable = false)
-	private String sobrenome;
 	
 	@Column(name="TELEFONE_P", nullable = false)
 	private String telefonep;
@@ -25,7 +25,11 @@ public class Cliente {
 	@Column(name="TELEFONE_S", nullable = true)
 	private String telefones;
 	
-	public Cliente(){
+	@Column(name="ENDEREDO", nullable = true)
+	private String endereco;
+	
+	public Fornecedor(){
+		
 	}
 
 	public Integer getId() {
@@ -36,20 +40,20 @@ public class Cliente {
 		this.id = id;
 	}
 
+	public String getCnpj() {
+		return cnpj;
+	}
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
 	}
 
 	public String getTelefonep() {
@@ -68,4 +72,13 @@ public class Cliente {
 		this.telefones = telefones;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	
 }

@@ -1,5 +1,5 @@
-import ClassesPersistencia.Cliente;
-import ClassesPersistencia.ClienteDAO;
+import persistencia.Cliente;
+import persistencia.ClienteDAO;
 
 public class MainTeste {
 	public static void main(String[] args){
