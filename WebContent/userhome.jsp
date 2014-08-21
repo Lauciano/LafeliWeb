@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsf/core"%>
 <%@ taglib prefix="h"  uri="http://java.sun.com/jsf/html"%>
 <!DOCTYPE html>
 <html>
-<head>
+<head> 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-		<title>Home</title>
-		<link href="resources/css/bootstrap.css" rel="stylesheet" />
-	</head>
-	
-	<body>
+<title>Insert title here</title>
+</head>
+<body>
+<f:metadata>  
+	<f:event listener="#{loginBean.verifyUseLogin}" type="preRenderView" />
+</f:metadata>
 		<f:view>
 			<header class="page-header">
 				<div>
@@ -29,11 +29,9 @@
 								<li><a href="#">Produtos</a></li>
 						</ul>
 						<div>
-							<h:form id="frmLogin" styleClass="navbar-form navbar-right">
-								  <h:inputText value="#{loginBean.username}" styleClass="form-control" />
-								  <h:inputSecret value="#{loginBean.password}" styleClass="form-control" />
-								  <h:commandButton action="#{loginBean.login}" value="Entrar" id="btnLogin" styleClass="btn btn-default" /> 
-							</h:form> 
+							<p class="navbar-text navbar-right">
+								Olá, Administrador.
+							</p>
 						</div>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->

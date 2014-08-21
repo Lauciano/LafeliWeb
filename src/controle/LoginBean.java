@@ -26,13 +26,13 @@ package controle;
       //custom member manager class  
       MemberManager memberManager=new MemberManager();  
       //default url in case of login failure;  
-      String url="home.jsf";  
+      String url="index.jsf";  
       
       //user a custom method to authenticate a user  
       if(memberManager.authenticate(username, password)){  
        //changed the state to true  
        isLoggedIn=true;  
-       url="home.jsf";  
+       url="userhome.jsf";  
       }else{  
        //set the message to display when authentication fails  
        FacesContext.getCurrentInstance().addMessage("frmLogin:btnLogin", new FacesMessage("Invalid Username and or Password"));  
@@ -46,7 +46,7 @@ package controle;
      */  
      public void verifyUseLogin(ComponentSystemEvent event){  
       if(!isLoggedIn){  
-       doRedirect("login.jsf");  
+       doRedirect("index.jsf");  
       }  
      }  
       
@@ -57,7 +57,7 @@ package controle;
      private void doRedirect(String url){  
       try {  
        FacesContext context=FacesContext.getCurrentInstance();  
-       context.getExternalContext().redirect("login.jsf");  
+       context.getExternalContext().redirect("index.jsf");  
       } catch (IOException e) {  
        e.printStackTrace();  
       }  
