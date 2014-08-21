@@ -28,13 +28,11 @@
 								<li><a href="#">Produtos</a></li>
 						</ul>
 						<div>
-						<form class="navbar-form navbar-right" role="form">
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Nome de Usuário" required autofocus>
-								<input type="password" class="form-control" placeholder="Senha" required>
-							</div>
-							<button class="btn btn-default" type="submit">Entrar</button>
-						</form>
+							<h:form id="frmLogin" styleClass="navbar-form navbar-right">
+								  <h:inputText value="#{loginBean.username}" styleClass="form-control" />
+								  <h:inputSecret value="#{loginBean.password}" styleClass="form-control" />
+								  <h:commandButton action="#{loginBean.login}" value="Entrar" id="btnLogin" styleClass="btn btn-default" /> 
+							</h:form> 
 						</div>
 					</div><!-- /.navbar-collapse -->
 				</div><!-- /.container-fluid -->
